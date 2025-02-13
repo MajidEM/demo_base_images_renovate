@@ -1,0 +1,33 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "timezone": "Asia/Kolkata",
+    "extends": [
+        "config:base"
+    ],
+    "packageRules": [
+        {
+            "matchDatasources": [
+                "docker"
+            ],
+            "matchPackageNames": [
+                "nginx"
+            ],
+            "versioning": "docker",
+            "groupName": "dotnet-docker-images",
+            "schedule": [
+                "after 4:15pm every weekday"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true
+        }
+    ],
+    "labels": [
+        "dependencies"
+    ],
+    "prHourlyLimit":3,
+    "prConcurrentLimit": 5
+}
