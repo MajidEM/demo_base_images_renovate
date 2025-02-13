@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ebruskokos/my_web_app:${{ github.sha }}
+          tags: majid021/gha_test:${{ github.sha }}
