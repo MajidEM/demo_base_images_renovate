@@ -38,7 +38,7 @@
     "gulp-clean-css": "3.9.0",
     "gulp-header": "1.8.12",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^6.0.0",
     "gulp-uglify": "3.0.2"
   }
 }
