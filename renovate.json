@@ -1,10 +1,17 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
       "matchPackageNames": ["python"],
       "matchManagers": ["dockerfile"],
-      "allowedVersions": "/^3\\.9\\./",
+      "allowedVersions": "3.9.x",
       "pinDigests": true
+    },
+    {
+      "matchPackageNames": ["python"],
+      "matchManagers": ["dockerfile"],
+      "ignoreUnstable": true,
+      "enabled": true
     }
   ]
 }
