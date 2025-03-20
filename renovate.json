@@ -3,7 +3,7 @@
     {
       "matchPackageNames": ["python"],
       "matchManagers": ["dockerfile"],
-      "allowedVersions": "/^3\\.9\\./",  // Regex: Only allow tags starting with "3.9."
+      "allowedVersions": "/^3\\.9\\./",
       "pinDigests": true
     }
   ]
