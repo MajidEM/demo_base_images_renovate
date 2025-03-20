@@ -1,32 +1,10 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "timezone": "Asia/Kolkata",
-    "extends": [
-        "config:recommended"
-    ],
-    "packageRules": [
-        {
-            "matchDatasources": [
-                "docker"
-            ],
-            "matchPackageNames": [
-                "nginx"
-            ],
-            "versioning": "docker",
-            "groupName": "dotnet-docker-images",
-            "schedule": "daily"
-            
-        },
-        {
-            "matchUpdateTypes": [
-                "patch"
-            ],
-            "automerge": true
-        }
-    ],
-    "labels": [
-        "dependencies"
-    ],
-    "prHourlyLimit": 3,
-    "prConcurrentLimit": 5
+  "packageRules": [
+    {
+      "matchPackageNames": ["python"],
+      "matchManagers": ["dockerfile"],
+      "allowedVersions": "/^3\\.9\\./",  // Regex: Only allow tags starting with "3.9."
+      "pinDigests": true
+    }
+  ]
 }
