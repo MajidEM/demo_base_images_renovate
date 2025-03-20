@@ -14,9 +14,8 @@
             ],
             "versioning": "docker",
             "groupName": "dotnet-docker-images",
-            "schedule": [
-                "after 4:15pm every weekday"
-            ]
+            "schedule": "daily"
+            
         },
         {
             "matchUpdateTypes": [
