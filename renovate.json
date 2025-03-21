@@ -3,9 +3,9 @@
   "packageRules": [
     {
       "matchPackageNames": ["python"],
-      "allowedVersions": "/^{{{3 '^(\\d+\\.\\d+)\\..*' '$1'}}}\\.\\d+(-.*)?$/",
       "matchDatasources": ["docker"],
-      "description": "Pin Python patch updates to current minor version"
+      "allowedVersions": "/^{{{replace currentVersion '^(\\d+\\.\\d+)(\\.|\\-).*' '$1'}}}\\.\\d+-slim$/",
+      "description": "Update Python slim images to latest patch within minor version"
     }
   ]
 }
