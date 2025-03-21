@@ -13,7 +13,7 @@
       "matchDatasources": ["docker"],
       "matchPackagePatterns": ["^python$"],
       "versioning": "docker",
-      "allowedVersions": "/[0-9]+\\.[0-9]+\\.[0-9]*\\-[a-z]+$| [0-9]+\\.[0-9]+\\.[0-9]*$/",
+      "allowedVersions": "/[0-9]+\\.[0-9]+\\.[0-9]+\\-[a-z]+$| [0-9]+\\.[0-9]+\\.[0-9]+$ | [0-9]+\\.[0-9]+$ | [0-9]+\\.[0-9]+\\-[a-z]+$/",
       "groupName": "python docker images",
       "separateMajorMinor": true,
       "separateMinorPatch": true,
