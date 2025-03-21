@@ -1,11 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
   "packageRules": [
     {
-      "matchPackageNames": ["python"],
       "matchDatasources": ["docker"],
-      "allowedVersions": "/^{{{replace currentVersion '^(\\d+\\.\\d+)(\\.|\\-).*' '$1'}}}\\.\\d+-slim$/",
-      "description": "Update Python slim images to latest patch within minor version"
+      "matchPackageNames": ["python"],
+      "matchCurrentValue": "/^\\d+\\.\\d+-slim$/",
+      "groupName": "Python Slim Minor Updates",
+      "matchUpdateTypes": ["minor"],
+      "description": "Updates Python slim images to the latest minor version."
     }
   ]
 }
