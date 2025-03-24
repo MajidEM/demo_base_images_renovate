@@ -21,27 +21,6 @@
       "matchPackageNames": [
         "/^python$/"
       ]
-    },
-    {
-      "matchDatasources": "docker",
-      "ignoreUnstable": true,
-      "enabled": true,
-      "pinDigests": true,
-      "versioning": "docker",
-      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-      "groupName": "go docker images",
-      "separateMajorMinor": true,
-      "separateMinorPatch": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "minor": {
-        "enabled": true
-      },
-      "patch": {
-        "enabled": true
-      },
-      "matchPackageNames": [
-        "/^go$/"
-      ]
     }
   ]
 }
