@@ -1,9 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "matchManagers": ["dockerfile"],
   "packageRules": [
     {
       "matchDatasources": "docker",
+      "matchManagers": ["dockerfile"],
       "ignoreUnstable": true,
       "pinDigests": true,
       "versioning": "docker",
