@@ -7,9 +7,11 @@
   "packageRules": [
     {
       "description": "Pin Python dependency digests",
-      "matchManagers": ["pep723"],
       "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-      "pinDigests": true
+      "pinDigests": true,
+      "matchPackageNames": [
+      "/^python$/"
+      ]
     },
     {
       "description": "Pin Go module digests",
@@ -24,7 +26,7 @@
     },
     {
       "description": "Group minor/patch updates",
-      "matchManagers": ["gomod", "pep723", "dockerfile"],
+      "matchManagers": ["gomod", "dockerfile"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies"
     }
