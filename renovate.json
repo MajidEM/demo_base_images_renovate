@@ -1,35 +1,25 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
-  "dependencyDashboard": true,
+  "extends": ["config:base"],
+  "docker": {
+    "enabled": true
+  },
   "packageRules": [
     {
-      "description": "Pin Python dependency digests",
-      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-      "pinDigests": true,
-      "matchPackageNames": [
-      "/^python$/"
-      ]
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^python", "^golang"],
+      "updateTypes": ["minor", "patch"],
+      "enabled": true
     },
     {
-      "description": "Pin Go module digests",
-      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
       "matchManagers": ["gomod"],
-      "pinDigests": true
+      "matchPackagePatterns": ["^"],
+      "updateTypes": ["minor", "patch"],
+      "enabled": true
     },
     {
-      "description": "Pin Docker image digests",
-      "matchManagers": ["dockerfile"],
-      "pinDigests": true
-    },
-    {
-      "description": "Group minor/patch updates",
-      "matchManagers": ["gomod", "dockerfile"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "all non-major dependencies"
+      "matchManagers": ["pip_requirements", "poetry"],
+      "updateTypes": ["minor", "patch"],
+      "enabled": true
     }
   ]
- 
 }
