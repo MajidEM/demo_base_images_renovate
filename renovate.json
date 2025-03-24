@@ -1,25 +1,40 @@
 {
-  "extends": ["config:base"],
-  "docker": {
-    "enabled": true
-  },
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "dockerfile"
+  ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^python", "^golang"],
-      "updateTypes": ["minor", "patch"],
-      "enabled": true
+      "matchCategories": [
+        "docker"
+      ],
+      "enabled": true,
+      "pinDigests": true
     },
     {
-      "matchManagers": ["gomod"],
-      "matchPackagePatterns": ["^"],
-      "updateTypes": ["minor", "patch"],
-      "enabled": true
-    },
-    {
-      "matchManagers": ["pip_requirements", "poetry"],
-      "updateTypes": ["minor", "patch"],
-      "enabled": true
+      "matchDatasources": [
+        "docker"
+      ],
+      "versioning": "docker",
+      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
+      "groupName": "Go docker images",
+      "separateMajorMinor": true,
+      "separateMinorPatch": true,
+      "major": {
+        "enabled": false
+      },
+      "minor": {
+        "enabled": true
+      },
+      "patch": {
+        "enabled": true
+      },
+      "matchPackageNames": [
+        "/^golang$/"
+      ]
     }
   ]
 }
