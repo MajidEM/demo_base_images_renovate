@@ -9,8 +9,6 @@
       "versioning": "docker",
       "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
       "groupName": "python docker images",
-      "separateMajorMinor": true,
-      "separateMinorPatch": true,
       "matchUpdateTypes": ["minor", "patch"],
       "minor": {
         "enabled": true
