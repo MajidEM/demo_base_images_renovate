@@ -1,16 +1,31 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "dockerfile"
+  ],
   "packageRules": [
     {
-      "matchDatasources": "docker",
-      "matchManagers": ["dockerfile"],
-      "ignoreUnstable": true,
-      "pinDigests": true,
+      "matchCategories": [
+        "docker"
+      ],
+      "enabled": true,
+      "pinDigests": true
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
       "versioning": "docker",
       "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
       "groupName": "python docker images",
       "separateMajorMinor": true,
       "separateMinorPatch": true,
+      "major": {
+        "enabled": false
+      },
       "minor": {
         "enabled": true
       },
@@ -20,6 +35,29 @@
       "matchPackageNames": [
         "/^python$/"
       ]
+    },
+    {
+    "matchDatasources": [
+        "docker"
+      ],
+      "versioning": "docker",
+      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
+      "groupName": "go docker images",
+      "separateMajorMinor": true,
+      "separateMinorPatch": true,
+      "major": {
+        "enabled": false
+      },
+      "minor": {
+        "enabled": true
+      },
+      "patch": {
+        "enabled": true
+      },
+      "matchPackageNames": [
+        "/^go$/i"
+      ]
     }
+
   ]
 }
