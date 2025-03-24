@@ -1,61 +1,44 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "packageRules": [
-        {
-            "matchPackageNames": [
-                "python"
-            ],
-            "matchManagers": [
-                "dockerfile"
-            ],
-            "ignoreUnstable": true,
-            "pinDigests": true,
-            "versioning": "docker",
-            "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-            "groupName": "python docker images",
-            "separateMajorMinor": true,
-            "separateMinorPatch": true,
-            "matchUpdateTypes": [
-                "minor",
-                "patch"
-            ],
-            "minor": {
-                "enabled": true
-            },
-            "patch": {
-                "enabled": true
-            }
-        },
-        {
-            "matchPackageNames": [
-                "go"
-            ],
-            "matchManagers": [
-                "dockerfile"
-            ],
-            "ignoreUnstable": true,
-            "enabled": true,
-            "pinDigests": true,
-            "versioning": "docker",
-            "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-            "groupName": "go docker images",
-            "separateMajorMinor": true,
-            "separateMinorPatch": true,
-            "matchUpdateTypes": [
-                "minor",
-                "patch"
-            ],
-            "minor": {
-                "enabled": true
-            },
-            "patch": {
-                "enabled": true
-            },
-            "dockerfile": {
-                "fileMatch": [
-                    "(^|/)GoLang.*$"
-                ]
-            }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "matchManagers": ["dockerfile"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["python"],
+      "ignoreUnstable": true,
+      "pinDigests": true,
+      "versioning": "docker",
+      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
+      "groupName": "python docker images",
+      "separateMajorMinor": true,
+      "separateMinorPatch": true,
+      "matchUpdateTypes": ["minor", "patch"],
+      "minor": {
+        "enabled": true
+      },
+      "patch": {
+        "enabled": true
+      }
+    },
+    {
+      "matchPackageNames": ["go"],
+      "ignoreUnstable": true,
+      "enabled": true,
+      "pinDigests": true,
+      "versioning": "docker",
+      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
+      "groupName": "go docker images",
+      "separateMajorMinor": true,
+      "separateMinorPatch": true,
+      "matchUpdateTypes": ["minor", "patch"],
+      "minor": {
+        "enabled": true
+      },
+      "patch": {
+        "enabled": true
+      },
+      "dockerfile": {
+        "fileMatch": ["(^|/)GoLang.*$"]
         }
-    ]
+    }
+  ]
 }
