@@ -11,8 +11,7 @@
       "matchCategories": [
         "docker"
       ],
-      "enabled": true,
-      "pinDigests": true
+      "enabled": true
     },
     {
       "matchDatasources": [
