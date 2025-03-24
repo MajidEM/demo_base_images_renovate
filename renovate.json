@@ -19,7 +19,7 @@
     },
     {
       "description": "Pin Docker image digests",
-      "matchManagers": ["dockerfile", "docker"],
+      "matchManagers": ["dockerfile"],
       "pinDigests": true
     },
     {
