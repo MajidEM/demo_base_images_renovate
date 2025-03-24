@@ -3,7 +3,7 @@
   "matchManagers": ["dockerfile"],
   "packageRules": [
     {
-      "matchPackageNames": ["python"],
+      "matchDatasources": "docker",
       "ignoreUnstable": true,
       "pinDigests": true,
       "versioning": "docker",
@@ -17,10 +17,13 @@
       },
       "patch": {
         "enabled": true
-      }
+      },
+      "matchPackageNames": [
+        "/^python$/"
+      ]
     },
     {
-      "matchPackageNames": ["go"],
+      "matchDatasources": "docker",
       "ignoreUnstable": true,
       "enabled": true,
       "pinDigests": true,
@@ -36,9 +39,9 @@
       "patch": {
         "enabled": true
       },
-      "dockerfile": {
-        "fileMatch": ["(^|/)GoLang.*$"]
-        }
+      "matchPackageNames": [
+        "/^go$/"
+      ]
     }
   ]
 }
