@@ -3,61 +3,37 @@
   "extends": [
     "config:recommended"
   ],
-  "enabledManagers": [
-    "dockerfile"
-  ],
+  "dependencyDashboard": true,
   "packageRules": [
     {
-      "matchCategories": [
-        "docker"
-      ],
-      "enabled": true,
+      "description": "Pin Python dependency digests",
+      "matchManagers": ["pip_requirements"],
+      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
       "pinDigests": true
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "versioning": "docker",
+      "description": "Pin Go module digests",
       "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-      "groupName": "python docker images",
-      "separateMajorMinor": true,
-      "separateMinorPatch": true,
-      "major": {
-        "enabled": false
-      },
-      "minor": {
-        "enabled": true
-      },
-      "patch": {
-        "enabled": true
-      },
-      "matchPackageNames": [
-        "/^python$/"
-      ]
+      "matchManagers": ["gomod"],
+      "pinDigests": true
     },
     {
-    "matchDatasources": [
-        "docker"
-      ],
-      "versioning": "docker",
-      "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
-      "groupName": "go docker images",
-      "separateMajorMinor": true,
-      "separateMinorPatch": true,
-      "major": {
-        "enabled": false
-      },
-      "minor": {
-        "enabled": true
-      },
-      "patch": {
-        "enabled": true
-      },
-      "matchPackageNames": [
-        "/^go$/i"
-      ]
+      "description": "Pin Docker image digests",
+      "matchManagers": ["dockerfile", "docker"],
+      "pinDigests": true
+    },
+    {
+      "description": "Group minor/patch updates",
+      "matchManagers": ["pip_requirements", "gomod", "dockerfile", "docker"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies"
     }
-
-  ]
+  ],
+  "pip_requirements": {
+    "fileMatch": ["(^|/)requirements.txt$"]
+  },
+  "dockerfile": {
+    "fileMatch": ["(^|/)Dockerfile$", "(^|/|\\.)Dockerfile\\.[^/]*$"]
+  }
+ 
 }
