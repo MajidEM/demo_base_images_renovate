@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "description": "Pin Python dependency digests",
-      "matchManagers": ["pip_requirements"],
+      "matchManagers": ["python"],
       "allowedVersions": "/\\d+\\.\\d+$ | \\d+\\.\\d+\\.\\d+$ | \\d+\\.\\d+\\-[a-z]+$ | \\d+\\.\\d+\\.\\d+\\-[a-z]+$/",
       "pinDigests": true
     },
@@ -24,16 +24,10 @@
     },
     {
       "description": "Group minor/patch updates",
-      "matchManagers": ["pip_requirements", "gomod", "dockerfile", "docker"],
+      "matchManagers": ["gomod", "dockerfile"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non-major dependencies"
     }
-  ],
-  "pip_requirements": {
-    "fileMatch": ["(^|/)requirements.txt$"]
-  },
-  "dockerfile": {
-    "fileMatch": ["(^|/)Dockerfile$", "(^|/|\\.)Dockerfile\\.[^/]*$"]
-  }
+  ]
  
 }
